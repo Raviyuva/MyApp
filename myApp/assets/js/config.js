@@ -1,6 +1,4 @@
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdleProvider, KeepaliveProvider,$locationProvider) {
-	// var baseUrl = "192.168.0.72:8083"
-	// var filesUrl = "/Rythu-Mobile/"
 	IdleProvider.idle(5); // in seconds
 	IdleProvider.timeout(120); // in seconds
 	$urlRouterProvider.otherwise("/homepage");
