@@ -1,0 +1,182 @@
+<div ng-controller="MainController" class="container">
+	<div class="pt_10">
+		<div class="text-center p_10">
+			<b><u>Resume</u></b>
+		</div>
+	</div>
+	<div class="row p_14">
+		<form class="form-horizontal pt_10">
+			<div class="form-group">
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Name *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<input type="text" class="form-control" name="userName" ng-model="resObj.userName" required placeholder="User Name"/>
+				</div>
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Mobile No*</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<input type="number" class="form-control" name="mobileNo" ng-model="resObj.mobileNo" required placeholder="mobile no"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">EmailId *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<input type="text" class="form-control" name="emailId" ng-model="resObj.emailId" required placeholder="User EmailId"/>
+				</div>
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Age *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<input type="text" class="form-control" name="age" ng-model="resObj.age" required placeholder="Age"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Gender *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<select class="form-control" required ng-model="resObj.gender">
+						<option value="MALE">Male</option>
+						<option value="FEMALE">Female</option>
+					</select>
+				</div>
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Country *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<select class="form-control" required ng-model="resObj.country">
+						<option value="INDIA">India</option>
+						<option value="UK">UK</option>
+						<option value="USA">USA</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Job Description *</label>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+					<textarea class="form-control" ng-model="resObj.jobDescription"></textarea>
+				</div>
+			</div>
+
+			<div class="pt_10 pb_10">
+				<div class="text-center p_10">
+					<b>Project Details</b>
+					<span class="text-right add_projects" ng-click="incProjectObj()"><i class="fa fa-plus"></i></span>
+				</div>
+			</div>
+
+			<div ng-repeat="projectObjs in projectDataObjArray" class="pt_10">
+				<div class="row p_10" ng-if="projectDataObjArray.length>1">
+					<span class="text-right remove_projects" ng-click="decProjectObj(projectObjs)"><i class="fa fa-minus"></i></span>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Project Name *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<input type="text" class="form-control" name="name" ng-model="projectObjs.projectName" required placeholder="Project Name"/>
+					</div>
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Project Description *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<textarea class="form-control" ng-model="projectObjs.description"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Project Domain *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<input type="text" class="form-control" name="name" ng-model="projectObjs.projectDomain" required placeholder="Project Domain" />
+					</div>
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Skills used in project *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<textarea class="form-control" ng-model="projectObjs.skillsUsedProject"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="pt_10 pb_10">
+				<div class="text-center p_10">
+					<b>Experience Details</b>
+					<span class="text-right add_projects" ng-click="incExperiencedObj()"><i class="fa fa-plus"></i></span>
+				</div>
+			</div>
+			<div ng-repeat="experienceObjs in experDataObjArray">
+				<div class="row p_10" ng-if="experDataObjArray.length>1">
+					<span class="text-right remove_projects" ng-click="decExperiencedObj(experienceObjs)"><i class="fa fa-minus"></i></span>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Experience *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<input type="text" class="form-control" name="name" ng-model="experienceObjs.experience" required placeholder="Experience in years" />
+					</div>
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Past Company Details *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<input type="text" class="form-control" name="name" ng-model="experienceObjs.pastCompanyDetails" required placeholder="Arthvedi information technologies private limited" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Role in company *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<select class="form-control" required ng-model="experienceObjs.role">
+							<option value="Software-Developer">Software-Developer</option>
+							<option value="Software-Designer">Software-Designer</option>
+							<option value="Application-Maintainance">Application-Maintainance</option>
+							<option value="Digital-Marketing">Digital-Marketing</option>
+						</select>
+					</div>
+					<label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Designation *</label>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> 
+						<select class="form-control" required ng-model="experienceObjs.designation">
+							<option value="Software-Developer">Software-Developer</option>
+							<option value="Software-Designer">Software-Designer</option>
+							<option value="Manager">Manager</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row text-center">
+				<button class="btn btn-outline-succes" ng-click="downloadResume(resObj)">Download Resume</button>
+			</div>
+		</form>
+
+		<div id="exportthis">
+			<div ng-if="data" class="pdf_dnl">
+				<div class="text-center f_14p"><u><b>RESUME</b></u></div>
+				<div class="text-center f_13p">{{data.userName}}</div>
+				<div class="text-center f_13p">{{data.mobileNo}}</div>
+				<div class="text-center f_13p">{{data.emailId}}</div>
+				<div class="row p_14">
+					<div class="p_14 f_16p c_green"><b>Summary</b></div>
+					<div class="pl_15">
+						<p class="p_14 f_13p">{{data.jobDescription}}</p>
+					</div>
+					<div class="p_14 f_16p c_green"><b>Experience Details</b></div>
+					<div class="pl_30" ng-repeat="experData in data.expData track by $index">
+						<div class="p_14">
+							<div>
+								<span class="f_14p">Company Name : <span class="c_green"><b>{{experData.pastCompanyDetails}}</b></span></span>
+								<span class="f_13p text-right">Experience : <span class="c_green">{{experData.experience}} Years</span></span>
+							</div>
+							<div class="f_13p">Role : <b>{{experData.role}}</b></div>
+							<div class="f_13p">Designation : <b>{{experData.designation}}</b></div>
+						</div>
+					</div>
+					<div class="p_14 f_16p c_green"><b>Project Details</b></div>
+					<div class="pl_30 pt_10" ng-repeat="projData in data.projectData track by $index">
+						<div class="row">
+							<div class="f_13p col-lg-4 col-md-4"><b>Project No : </b></div>
+							<div class="f_13p col-lg-8 col-md-8"> {{$index+1}}</div>
+						</div>
+						<div class="row">
+							<div class="f_13p col-lg-4 col-md-4"><b>Project Name : </b></div>
+							<div class="f_13p col-lg-8 col-md-8"> {{projData.projectName}}</div>
+						</div>
+						<div class="row">
+							<div class="f_13p col-lg-4 col-md-4"><b>Project Domain : </b></div>
+							<div class="f_13p col-lg-8 col-md-8"> {{projData.projectDomain}}</div>
+						</div>
+						<div class="row">
+							<div class="f_13p col-lg-4 col-md-4"><b>Skills used in project : </b></div>
+							<div class="f_13p col-lg-8 col-md-8"> {{projData.skillsUsedProject}}</div>
+						</div>
+						<div class="row">
+							<div class="f_13p col-lg-4 col-md-4"><b>Project Description : </b></div>
+							<div class="f_13p col-lg-8 col-md-8"> {{projData.description}}</div>
+						</div>
+						<hr/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
